@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 # Create your models here.
@@ -17,3 +18,15 @@ class Room(models.Model):
     
     def __str__(self):
         return f'room {self.number} of the {self.category} category has {self.beds} for {self.guests} guests'
+    
+    
+    class Booking(models.Model):
+        user = models.ForeignKey(settings.AUTH_USER_MODEL, ondelete=models.CASCADE)
+        room = models.ForeignKey(Room, ondelete=models.CASCADE)
+        check_in = models.DateTimeField()
+        check_out = models.DateTimeField()
+        
+        def __str__(self):
+            return f'{self.user} has booked {self.room} from {self.check_in} to {self.check_out}'
+
+        

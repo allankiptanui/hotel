@@ -36,7 +36,7 @@
             <div class="room-info">
                 <h1>{{room_category}}</h1>
                 <p>check this amazing offer on thi room with amazing discounts.
-                    on this amazing {{room_category}}package </p>
+                    on this amazing {{booking.room.get_room_category}} package </p>
             </div>
 
             <!-- Div 3: Room Booking Form -->
@@ -44,28 +44,10 @@
 
                 {% csrf_token %} 
                  <!-- Input Div -->
+                <h3> are you certain you wanna delete this ``{{booking.get_room_category}} ``reservation?<br> room number : {{booking.room.no}} <br>scheduled for :<br> {{booking.check_in}} to {{booking.check_out}}</h3>
+                
                 <div class="input-div">
-                    <label for="id_check_in">Destination: </label>
-                    <input type="adress" id="id_destination" required name="destination">
-                </div>
-                    <!-- Input Div -->
-                    <div class="input-div">
-                        <label for="id_check_in">Check In : </label>
-                        <input type="datetime-local" id="id_check_in" name="check_in">
-                    </div>
-    
-
-              
-
-                <!-- Input Div -->
-                <div class="input-div">
-                    <label for="id_check_out">Check Out : </label>
-                    <input type="datetime-local" id="id_check_out" name="check_out">
-                </div>
-
-                <!-- Input Div -->
-                <div class="input-div">
-                    <button type="submit">Book the Room</button>
+                    <button type="submit"> cancel Booking</button>
                 </div>
 
             </form>

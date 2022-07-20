@@ -1,13 +1,13 @@
 from django.urls import path
 
-from .views import BookingList, RoomDetailsView, RoomListView, BookingView
+from .views import BookingList, RoomDetailsView, CancelBookingView,RoomListView
 
 app_name='core'
 
 urlpatterns = [
-    path ('availability_list/',RoomListView, name = 'RoomList'),
+    path ('book/',RoomListView, name = 'RoomList'),
     path ('booking_list/',BookingList.as_view(), name = 'BookingList'),
-    path ('book/',BookingView.as_view(), name = 'Booking_view'),
+    path ('booking/cancel/<pk>',CancelBookingView.as_view(), name = 'CancelBookingView'),
     path ('room/<category>/', RoomDetailsView.as_view(), name = 'RoomDetailView')
     
 ]

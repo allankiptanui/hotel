@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Room Detail</title>
     <script src="{https://kit.fontawesome.com/692189991f.js}" crossorigin="anonymous"></script>
-
+    <title> details</title>
     <!-- Main StyleSheet -->
     <link rel="stylesheet" href="{% static 'core/css/detail.css' %}">
 
@@ -35,8 +35,7 @@
             <!-- Div 2: Room Information -->
             <div class="room-info">
                 <h1>{{room_category}}</h1>
-                <p>check this amazing offer on thi room with amazing discounts.
-                    on this amazing {{room_category}}package </p>
+                <p>thank you for choosing <strong>{{booking.room.get_room_category}}</strong> package, your details is as follows:</p> </p>
             </div>
 
             <!-- Div 3: Room Booking Form -->
@@ -44,28 +43,10 @@
 
                 {% csrf_token %} 
                  <!-- Input Div -->
+                <h3> Room Category : <strong>{{booking.get_room_category}}</strong> reservation<br> Room number :<strong>{{booking.room.no}}</strong>  <br>scheduled for :<br><strong>{{booking.check_in}}</strong>  to<strong> {{booking.check_out}}</strong></h3>
+                
                 <div class="input-div">
-                    <label for="id_check_in">Destination: </label>
-                    <input type="adress" id="id_destination" required name="destination">
-                </div>
-                    <!-- Input Div -->
-                    <div class="input-div">
-                        <label for="id_check_in">Check In : </label>
-                        <input type="datetime-local" id="id_check_in" name="check_in">
-                    </div>
-    
-
-              
-
-                <!-- Input Div -->
-                <div class="input-div">
-                    <label for="id_check_out">Check Out : </label>
-                    <input type="datetime-local" id="id_check_out" name="check_out">
-                </div>
-
-                <!-- Input Div -->
-                <div class="input-div">
-                    <button type="submit">Book the Room</button>
+                    <button type="submit"> cancel reservation</button>
                 </div>
 
             </form>
